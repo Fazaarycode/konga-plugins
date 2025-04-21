@@ -84,12 +84,21 @@ plugins:
   #   config:
   #     hide_credentials: true
 
-  - name: key-auth
+  # - name: key-auth
+  #   service: mockbin-service
+  #   config:
+  #     key_names:
+  #     - apikey # This is the name of the header that will be used to send the API key
+  #     # http://localhost:8000/mock?apikey=hello_world - Success!
+  #     key_in_query: true
+  #     # key_in_body: true
+  #     # key_in_header: true
+
+  - name: request-termination
     service: mockbin-service
     config:
-      key_names:
-      - apikey # This is the name of the header that will be used to send the API key
-      # http://localhost:8000/mock?apikey=hello_world - Success!
-      key_in_query: true
-      # key_in_body: true
-      # key_in_header: true
+      status_code: 403
+      message: "You are not allowed to access this resource"
+
+
+
