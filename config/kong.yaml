@@ -94,11 +94,15 @@ plugins:
   #     # key_in_body: true
   #     # key_in_header: true
 
-  - name: request-termination
+  # - name: request-termination
+  #   service: mockbin-service
+  #   config:
+  #     status_code: 403
+  #     message: "You are not allowed to access this resource"
+  #     trigger: "q" # This is the trigger for the request termination - if passed in q params, it will terminate the request
+
+  - name: request-size-limiting
     service: mockbin-service
     config:
-      status_code: 403
-      message: "You are not allowed to access this resource"
-      trigger: "q" # This is the trigger for the request termination - if passed in q params, it will terminate the request
-
-
+      allowed_payload_size: 1
+      size_unit: kilobytes
