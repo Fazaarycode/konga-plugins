@@ -57,3 +57,9 @@ plugins:
       # - 54.13.21.1 # This is a random address - if you have it enable, you should not be able to access , http://localhost:8000/mock
       - 172.18.0.0/24 # This should allow my ip "range" - /24 CIDR
 
+  - name: bot-detection
+    service: mockbin-service
+    config:
+      deny:
+      - "(C)|(c)hrome" # this should block chrome 
+      # Test this by overriding the user agent in postman to chrome
