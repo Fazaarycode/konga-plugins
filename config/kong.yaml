@@ -99,6 +99,6 @@ plugins:
     config:
       status_code: 403
       message: "You are not allowed to access this resource"
-
+      trigger: "q" # This is the trigger for the request termination - if passed in q params, it will terminate the request
 
 
