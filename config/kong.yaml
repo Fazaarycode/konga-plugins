@@ -49,3 +49,11 @@ plugins:
       minute: 3
       hour: 10000
       policy: local
+
+  - name: ip-restriction
+    service: mockbin-service
+    config:
+      allow:
+      # - 54.13.21.1 # This is a random address - if you have it enable, you should not be able to access , http://localhost:8000/mock
+      - 172.18.0.0/24 # This should allow my ip "range" - /24 CIDR
+
