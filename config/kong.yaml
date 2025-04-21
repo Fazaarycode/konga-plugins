@@ -42,3 +42,10 @@ plugins:
       - X-Auth-Token
       credentials: true
       max_age: 3600
+
+  - name: rate-limiting
+    service: mockbin-service
+    config:
+      minute: 3
+      hour: 10000
+      policy: local
