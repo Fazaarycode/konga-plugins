@@ -32,6 +32,11 @@ basicauth_credentials:
   username: Aladdin
   password: OpenSesame
 
+keyauth_credentials:
+- consumer: USER123
+  key: hello_world # THIS IS THE PASSWORD!
+
+
 plugins:
   - name: cors
     config:
@@ -74,9 +79,17 @@ plugins:
       - "(C)|(c)hrome" # this should block chrome 
       # Test this by overriding the user agent in postman to chrome
   
-  - name: basic-auth
+  # - name: basic-auth
+  #   service: mockbin-service
+  #   config:
+  #     hide_credentials: true
+
+  - name: key-auth
     service: mockbin-service
     config:
-      hide_credentials: true
-
-
+      key_names:
+      - apikey # This is the name of the header that will be used to send the API key
+      # http://localhost:8000/mock?apikey=hello_world - Success!
+      key_in_query: true
+      # key_in_body: true
+      # key_in_header: true
