@@ -22,6 +22,16 @@ services:
         regex_priority: 0
         strip_path: true
 
+# For basic auth - As this is an auth plugin, you need to create a consumer and attach a credential to it.
+consumers:
+- username: USER123
+  custom_id: SOME_CUSTOM_ID
+
+basicauth_credentials:
+- consumer: USER123
+  username: Aladdin
+  password: OpenSesame
+
 plugins:
   - name: cors
     config:
@@ -63,3 +73,10 @@ plugins:
       deny:
       - "(C)|(c)hrome" # this should block chrome 
       # Test this by overriding the user agent in postman to chrome
+  
+  - name: basic-auth
+    service: mockbin-service
+    config:
+      hide_credentials: true
+
+
