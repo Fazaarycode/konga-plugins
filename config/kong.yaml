@@ -26,7 +26,7 @@ plugins:
   - name: cors
     config:
       origins:
-      - http://mockbin.com
+      - http://mockbin.com # Allows to query localhost:8000/mock only from these origins
       methods:
       - GET
       - POST
